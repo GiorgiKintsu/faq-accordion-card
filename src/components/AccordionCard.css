@@ -1,0 +1,35 @@
+.questionAndAnswerWrapper{
+    width: 350px;
+    border-bottom: 1px solid #E8E8EA;
+}
+.question{
+    width: 350px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.question h3{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #4B4C5F;
+}
+.question:hover h3{
+    color: #F47B56;
+}
+.answer{
+    width: 319px;
+    height: 36px;
+}
+.answer h4{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #787887;
+}
