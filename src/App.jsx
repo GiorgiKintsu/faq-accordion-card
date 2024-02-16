@@ -1,22 +1,21 @@
+import { useState } from 'react'
 import './App.css'
 import AccordionCard from './components/AccordionCard'
 import leftImage from './images/mention-isometric.svg'
+import {DATA} from './data/Data'
 
 function App() {
-  const questions = [
-    "How many team members can I invite?",
-    "What is the maximum file upload size?",
-    "How do I reset my password?",
-    "Can I cancel my subscription?",
-    "Do you provide additional support?"
-  ]
-  const answers = [
-    "No more than 2GB. All files in your account must fit your allotted storage space.",
-    "No more than 2GB. All files in your account must fit your allotted storage space.",
-    "No more than 2GB. All files in your account must fit your allotted storage space.",
-    "No more than 2GB. All files in your account must fit your allotted storage space.",
-    "No more than 2GB. All files in your account must fit your allotted storage space."
-  ]
+
+  const [activeAccordionNumber, setActiveAccordionNumber] = useState(null);
+
+  const handleClick = (itemNumber) => {
+    if(activeAccordionNumber === itemNumber){
+      setActiveAccordionNumber(null)
+    }else{
+      setActiveAccordionNumber(itemNumber)
+    }
+  }
+
   return (
     <div className='mainWrapper'>
       <main className='mainSection'>
@@ -25,11 +24,17 @@ function App() {
         </aside>
         <aside className="rightSide">
           <h2>faq</h2>
-          <AccordionCard question={questions[0]} answer={answers[0]}/>
-          <AccordionCard question={questions[1]} answer={answers[1]}/>
-          <AccordionCard question={questions[2]} answer={answers[2]}/>
-          <AccordionCard question={questions[3]} answer={answers[3]}/>
-          <AccordionCard question={questions[4]} answer={answers[4]}/>
+
+          {DATA.map((item) => (
+            <AccordionCard
+              key = {item.itemNumber} 
+              handleClick = {handleClick}
+              itemNumber = {item.itemNumber}
+              question = {item.question} 
+              answer = {item.answer}
+              activeAccordionNumber = {activeAccordionNumber}
+            />
+          ))}
         </aside>
       </main>
     </div>

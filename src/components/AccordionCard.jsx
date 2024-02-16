@@ -1,21 +1,28 @@
-import { useState } from 'react'
 import arrow from '../images/arrow-down.svg'
 import './AccordionCard.css'
 
 
 function AccordionCard(props) {
-    const [clicked, setClicked] = useState(false);
-
+    const {handleClick, activeAccordionNumber, question, answer, itemNumber} = props
     
     return(
         <div className='questionAndAnswerWrapper'>
-            <div className="question" onClick={() => setClicked(!clicked)}>
-                <h3>{props.question}</h3>
-                <img src={arrow} alt="arrow-down" />
+            <div 
+                className="question" 
+                onClick={() => {handleClick(itemNumber)}
+            }>
+                    <h3
+                        style={{fontWeight: activeAccordionNumber == itemNumber ? "bold" : "normal"}}  
+                    >
+                        {question}</h3>
+                    <img src={arrow} alt="arrow-down" />
             </div>
-            {clicked == true ? <div className='answer'>
-                <h4>{props.answer}</h4>
-            </div> : null}
+            {activeAccordionNumber == itemNumber ? 
+                <div className='answer'>
+                    <h4>{answer}</h4>
+                </div> 
+                : 
+            null}
         </div>
     )
 }

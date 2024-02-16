@@ -33,3 +33,20 @@
     text-align: left;
     color: #787887;
 }
+@media only screen and (max-width: 970px) {
+    .questionAndAnswerWrapper{
+        width: 279px;
+    }
+    .question{
+        width: 279px;
+        height: 51px
+    }
+    .question h3{
+        font-size: 13px;
+        line-height: 16px;       
+    }
+    .answer{
+        width: 279px;
+        height: 36px;
+    }
+  }
